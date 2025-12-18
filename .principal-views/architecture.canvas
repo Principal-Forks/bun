@@ -1,0 +1,296 @@
+{
+  "pv": {
+    "name": "Bun Architecture Graph",
+    "version": "1.0.0"
+  },
+  "nodes": [
+    {
+      "id": "runtime",
+      "type": "Runtime",
+      "x": 357,
+      "y": 263,
+      "width": 120,
+      "height": 60,
+      "color": "#FF6B6B",
+      "pv": {
+        "nodeType": "Runtime",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "jsc",
+      "type": "JavaScriptCore",
+      "x": 597,
+      "y": 265,
+      "width": 140,
+      "height": 60,
+      "color": "#4ECDC4",
+      "pv": {
+        "nodeType": "JavaScriptCore",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "eventloop",
+      "type": "EventLoop",
+      "x": 441,
+      "y": 445,
+      "width": 120,
+      "height": 60,
+      "color": "#45B7D1",
+      "pv": {
+        "nodeType": "EventLoop",
+        "shape": "circle"
+      }
+    },
+    {
+      "id": "parser",
+      "type": "JSParser",
+      "x": 100,
+      "y": 150,
+      "width": 120,
+      "height": 60,
+      "color": "#96CEB4",
+      "pv": {
+        "nodeType": "JSParser",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "transpiler",
+      "type": "Transpiler",
+      "x": 300,
+      "y": 150,
+      "width": 120,
+      "height": 60,
+      "color": "#FFEAA7",
+      "pv": {
+        "nodeType": "Transpiler",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "bundler",
+      "type": "Bundler",
+      "x": 500,
+      "y": 150,
+      "width": 120,
+      "height": 60,
+      "color": "#DDA0DD",
+      "pv": {
+        "nodeType": "Bundler",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "pkgmgr",
+      "type": "PackageManager",
+      "x": 700,
+      "y": 150,
+      "width": 140,
+      "height": 60,
+      "color": "#98D8C8",
+      "pv": {
+        "nodeType": "PackageManager",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "nodeapi",
+      "type": "NodeAPI",
+      "x": 230,
+      "y": 468,
+      "width": 120,
+      "height": 60,
+      "color": "#F7DC6F",
+      "pv": {
+        "nodeType": "NodeAPI",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "webapi",
+      "type": "WebAPI",
+      "x": 564,
+      "y": 367,
+      "width": 120,
+      "height": 60,
+      "color": "#85C1E9",
+      "pv": {
+        "nodeType": "WebAPI",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "bunapi",
+      "type": "BunAPI",
+      "x": 362,
+      "y": 593,
+      "width": 120,
+      "height": 60,
+      "color": "#F8B739",
+      "pv": {
+        "nodeType": "BunAPI",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "httpserver",
+      "type": "HTTPServer",
+      "x": 100,
+      "y": 597,
+      "width": 130,
+      "height": 60,
+      "color": "#52B788",
+      "pv": {
+        "nodeType": "HTTPServer",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "httpclient",
+      "type": "HTTPClient",
+      "x": 589,
+      "y": 468,
+      "width": 130,
+      "height": 60,
+      "color": "#40916C",
+      "pv": {
+        "nodeType": "HTTPClient",
+        "shape": "rectangle"
+      }
+    },
+    {
+      "id": "websocket",
+      "type": "WebSocket",
+      "x": 749,
+      "y": 468,
+      "width": 120,
+      "height": 60,
+      "color": "#2D6A4F",
+      "pv": {
+        "nodeType": "WebSocket",
+        "shape": "rectangle"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "parse_edge",
+      "fromNode": "parser",
+      "toNode": "transpiler",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#74B9FF",
+      "label": "Parses"
+    },
+    {
+      "id": "transpile_edge",
+      "fromNode": "transpiler",
+      "toNode": "bundler",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#A29BFE",
+      "label": "Transpiles"
+    },
+    {
+      "id": "bundle_edge",
+      "fromNode": "bundler",
+      "toNode": "runtime",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#FD79A8",
+      "label": "Bundles"
+    },
+    {
+      "id": "execute_edge",
+      "fromNode": "runtime",
+      "toNode": "jsc",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#FDCB6E",
+      "label": "Executes"
+    },
+    {
+      "id": "runtime_eventloop_edge",
+      "fromNode": "runtime",
+      "toNode": "eventloop",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "color": "#636E72",
+      "label": "DependsOn"
+    },
+    {
+      "id": "pkgmgr_bundle_edge",
+      "fromNode": "bundler",
+      "toNode": "pkgmgr",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#636E72",
+      "label": "DependsOn"
+    },
+    {
+      "id": "nodeapi_runtime_edge",
+      "fromNode": "nodeapi",
+      "toNode": "runtime",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#00B894",
+      "label": "Implements"
+    },
+    {
+      "id": "webapi_runtime_edge",
+      "fromNode": "webapi",
+      "toNode": "runtime",
+      "fromSide": "top",
+      "toSide": "right",
+      "color": "#00B894",
+      "label": "Implements"
+    },
+    {
+      "id": "bunapi_runtime_edge",
+      "fromNode": "bunapi",
+      "toNode": "runtime",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "color": "#E17055",
+      "label": "Extends"
+    },
+    {
+      "id": "httpserver_bunapi_edge",
+      "fromNode": "httpserver",
+      "toNode": "bunapi",
+      "fromSide": "right",
+      "toSide": "left",
+      "color": "#636E72",
+      "label": "DependsOn"
+    },
+    {
+      "id": "httpclient_webapi_edge",
+      "fromNode": "httpclient",
+      "toNode": "webapi",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#636E72",
+      "label": "DependsOn"
+    },
+    {
+      "id": "websocket_httpclient_edge",
+      "fromNode": "websocket",
+      "toNode": "httpclient",
+      "fromSide": "left",
+      "toSide": "right",
+      "color": "#E17055",
+      "label": "Extends"
+    },
+    {
+      "id": "eventloop_async_edge",
+      "fromNode": "eventloop",
+      "toNode": "httpclient",
+      "fromSide": "right",
+      "toSide": "top",
+      "color": "#0984E3",
+      "label": "Communicates"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+version: "1.0.0"
+name: "Bun Runtime Architecture"
+
+nodeComponents:
+  Runtime:
+    description: "Main Bun JavaScript runtime engine"
+    tags: ["core", "zig"]
+    color: "#FF6B6B"
+    shape: "rectangle"
+
+  JavaScriptCore:
+    description: "WebKit's JavaScript engine for JS execution"
+    tags: ["engine", "external"]
+    color: "#4ECDC4"
+    shape: "cylinder"
+
+  EventLoop:
+    description: "Event loop for asynchronous operations"
+    tags: ["runtime", "async"]
+    color: "#45B7D1"
+    shape: "circle"
+
+  JSParser:
+    description: "JavaScript parser and lexer"
+    tags: ["parser", "zig"]
+    color: "#96CEB4"
+    shape: "rectangle"
+
+  Transpiler:
+    description: "JavaScript/TypeScript transpiler"
+    tags: ["transpiler", "zig"]
+    color: "#FFEAA7"
+    shape: "rectangle"
+
+  Bundler:
+    description: "JavaScript bundler with tree-shaking"
+    tags: ["build", "bundler"]
+    color: "#DDA0DD"
+    shape: "rectangle"
+
+  PackageManager:
+    description: "Package manager for npm-compatible dependencies"
+    tags: ["build", "npm"]
+    color: "#98D8C8"
+    shape: "rectangle"
+
+  NodeAPI:
+    description: "Node.js compatibility layer"
+    tags: ["compatibility", "node"]
+    color: "#F7DC6F"
+    shape: "rectangle"
+
+  WebAPI:
+    description: "Web API implementations (Fetch, Streams, etc.)"
+    tags: ["api", "web"]
+    color: "#85C1E9"
+    shape: "rectangle"
+
+  BunAPI:
+    description: "Bun-specific APIs"
+    tags: ["api", "bun"]
+    color: "#F8B739"
+    shape: "rectangle"
+
+  HTTPServer:
+    description: "HTTP server implementation"
+    tags: ["network", "server"]
+    color: "#52B788"
+    shape: "rectangle"
+
+  HTTPClient:
+    description: "HTTP client for fetch requests"
+    tags: ["network", "client"]
+    color: "#40916C"
+    shape: "rectangle"
+
+  WebSocket:
+    description: "WebSocket client implementation"
+    tags: ["network", "websocket"]
+    color: "#2D6A4F"
+    shape: "rectangle"
+
+edgeComponents:
+  Parses:
+    description: "Parse source code"
+    tags: ["dataflow"]
+    style: "solid"
+    directed: true
+
+  Transpiles:
+    description: "Transform/transpile code"
+    tags: ["dataflow"]
+    style: "solid"
+    directed: true
+
+  Bundles:
+    description: "Bundle modules together"
+    tags: ["dataflow"]
+    style: "solid"
+    directed: true
+
+  Executes:
+    description: "Execute JavaScript code"
+    tags: ["dataflow"]
+    style: "solid"
+    directed: true
+
+  DependsOn:
+    description: "Component depends on another"
+    tags: ["dependency"]
+    style: "dashed"
+    directed: true
+
+  Implements:
+    description: "Implements an interface or spec"
+    tags: ["implementation"]
+    style: "solid"
+    directed: true
+
+  Extends:
+    description: "Extends functionality of another component"
+    tags: ["extension"]
+    style: "dotted"
+    directed: true
+
+  Communicates:
+    description: "Components communicate with each other"
+    tags: ["communication"]
+    style: "solid"
+    directed: true
+
+  HandlesRequests:
+    description: "Handles HTTP requests"
+    tags: ["requestflow"]
+    style: "solid"
+    directed: true
