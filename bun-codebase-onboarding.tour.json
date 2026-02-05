@@ -1,0 +1,253 @@
+{
+  "id": "bun-codebase-onboarding",
+  "title": "Bun Codebase Onboarding Tour",
+  "description": "Explore the architecture of Bun - an all-in-one JavaScript runtime & toolkit built with Zig, C++, and TypeScript",
+  "version": "1.0.0",
+  "audience": "New Developers",
+  "prerequisites": ["Basic understanding of JavaScript runtimes", "Familiarity with systems programming concepts"],
+  "steps": [
+    {
+      "id": "step-1-overview",
+      "title": "Welcome to Bun's Codebase",
+      "description": "Bun is a high-performance JavaScript runtime written primarily in Zig with C++ for JavaScriptCore integration. This tour will guide you through the main architectural components.",
+      "estimatedTime": 90,
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-2-zig-core",
+      "title": "Zig Runtime Core",
+      "description": "The heart of Bun is written in Zig, providing memory safety, performance, and low-level system integration. Key files include the main entry point, CLI orchestration, and JavaScript parsing.",
+      "estimatedTime": 180,
+      "focusDirectory": "src",
+      "highlightLayers": [
+        {
+          "id": "zig-core-layer",
+          "name": "Core Zig Files",
+          "color": "#f97316",
+          "items": [
+            { "path": "src/bun.zig", "type": "file" },
+            { "path": "src/cli.zig", "type": "file" },
+            { "path": "src/js_parser.zig", "type": "file" },
+            { "path": "src/js_lexer.zig", "type": "file" },
+            { "path": "src/transpiler.zig", "type": "file" },
+            { "path": "src/resolver", "type": "directory" },
+            { "path": "src/allocators", "type": "directory" }
+          ],
+          "opacity": 0.8,
+          "borderWidth": 3
+        }
+      ],
+      "colorMode": "fileTypes",
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click bun.zig to see the main entry point",
+          "target": "src/bun.zig"
+        }
+      ]
+    },
+    {
+      "id": "step-3-javascript-bindings",
+      "title": "JavaScriptCore C++ Bindings",
+      "description": "The C++ layer provides bindings to JavaScriptCore, enabling JavaScript execution and Web API implementations. This is where the JavaScript engine integration happens.",
+      "estimatedTime": 150,
+      "focusDirectory": "src/bun.js/bindings",
+      "highlightLayers": [
+        {
+          "id": "cpp-bindings-layer",
+          "name": "C++ JavaScriptCore Bindings",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "src/bun.js/bindings", "type": "directory" },
+            { "path": "src/bun.js/bindings/WebCoreBuiltins.cpp", "type": "file" },
+            { "path": "src/bun.js/bindings/JSBuffer.cpp", "type": "file" },
+            { "path": "src/bun.js/bindings/JSCrypto.cpp", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-4-bun-apis",
+      "title": "Bun-Specific APIs",
+      "description": "These are Bun's unique APIs and implementations that go beyond standard JavaScript/Node.js, including the HTTP server, FFI, and package manager.",
+      "estimatedTime": 160,
+      "focusDirectory": "src/bun.js/api",
+      "highlightLayers": [
+        {
+          "id": "bun-apis-layer",
+          "name": "Bun APIs",
+          "color": "#10b981",
+          "items": [
+            { "path": "src/bun.js/api", "type": "directory" },
+            { "path": "src/bun.js/api/server.zig", "type": "file" },
+            { "path": "src/bun.js/api/FFI.zig", "type": "file" },
+            { "path": "src/bun.js/api/crypto.zig", "type": "file" },
+            { "path": "src/bun.js/api/glob.zig", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-5-node-compatibility",
+      "title": "Node.js Compatibility Layer",
+      "description": "Bun provides extensive Node.js compatibility through this layer, implementing familiar APIs like fs, path, crypto, and process.",
+      "estimatedTime": 140,
+      "focusDirectory": "src/bun.js/node",
+      "highlightLayers": [
+        {
+          "id": "node-layer",
+          "name": "Node.js Compatibility",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "src/bun.js/node", "type": "directory" },
+            { "path": "src/bun.js/node/fs.zig", "type": "file" },
+            { "path": "src/bun.js/node/path.zig", "type": "file" },
+            { "path": "src/bun.js/node/crypto.zig", "type": "file" },
+            { "path": "src/bun.js/node/process.zig", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-6-web-apis",
+      "title": "Web Standards Implementation",
+      "description": "Implementation of Web APIs including Fetch, WebSocket, Streams, and other browser-compatible APIs for server-side use.",
+      "estimatedTime": 130,
+      "focusDirectory": "src/bun.js/webcore",
+      "highlightLayers": [
+        {
+          "id": "web-apis-layer",
+          "name": "Web APIs",
+          "color": "#ef4444",
+          "items": [
+            { "path": "src/bun.js/webcore", "type": "directory" },
+            { "path": "src/bun.js/webcore/fetch.zig", "type": "file" },
+            { "path": "src/bun.js/webcore/streams.zig", "type": "file" },
+            { "path": "src/bun.js/webcore/Blob.zig", "type": "file" },
+            { "path": "src/bun.js/webcore/Response.zig", "type": "file" },
+            { "path": "src/bun.js/webcore/Request.zig", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-7-build-tools",
+      "title": "Bundler & Package Manager",
+      "description": "Bun includes a fast bundler and package manager. This is where the advanced tree-shaking, dependency resolution, and build tooling lives.",
+      "estimatedTime": 150,
+      "highlightLayers": [
+        {
+          "id": "build-tools-layer",
+          "name": "Build Tools",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "src/bundler", "type": "directory" },
+            { "path": "src/install", "type": "directory" },
+            { "path": "src/install/lockfile", "type": "directory" },
+            { "path": "src/install/npm.zig", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-8-javascript-modules",
+      "title": "Built-in JavaScript Modules",
+      "description": "Bun ships with built-in JavaScript modules using special syntax. These include Node.js compatibility modules, Bun-specific modules, and third-party replacements.",
+      "estimatedTime": 120,
+      "focusDirectory": "src/js",
+      "highlightLayers": [
+        {
+          "id": "js-modules-layer",
+          "name": "JavaScript Modules",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "src/js", "type": "directory" },
+            { "path": "src/js/node", "type": "directory" },
+            { "path": "src/js/bun", "type": "directory" },
+            { "path": "src/js/thirdparty", "type": "directory" },
+            { "path": "src/js/builtins", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-9-testing",
+      "title": "Test Suite",
+      "description": "Comprehensive test suite covering all aspects of Bun. Tests are organized by functionality and include regression tests for specific GitHub issues.",
+      "estimatedTime": 100,
+      "focusDirectory": "test",
+      "highlightLayers": [
+        {
+          "id": "test-layer",
+          "name": "Test Suite",
+          "color": "#84cc16",
+          "items": [
+            { "path": "test", "type": "directory" },
+            { "path": "test/js/bun", "type": "directory" },
+            { "path": "test/js/node", "type": "directory" },
+            { "path": "test/js/web", "type": "directory" },
+            { "path": "test/bundler", "type": "directory" },
+            { "path": "test/regression", "type": "directory" }
+          ],
+          "opacity": 0.6,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "step-10-getting-started",
+      "title": "Development Workflow",
+      "description": "Key files for understanding how to build and develop Bun. The build system uses Zig's build system, and the main workflow involves 'bun bd' for debug builds.",
+      "estimatedTime": 110,
+      "highlightFiles": ["package.json", "AGENTS.md", "README.md", "build.zig"],
+      "highlightLayers": [
+        {
+          "id": "dev-files-layer",
+          "name": "Development Files",
+          "color": "#6366f1",
+          "items": [
+            { "path": "package.json", "type": "file" },
+            { "path": "AGENTS.md", "type": "file" },
+            { "path": "README.md", "type": "file" },
+            { "path": "build.zig", "type": "file" },
+            { "path": "Makefile", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "borderWidth": 2
+        }
+      ],
+      "colorMode": "fileTypes",
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click AGENTS.md to see development guidelines",
+          "target": "AGENTS.md"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "author": "File City Tours",
+    "createdAt": "2026-02-05T00:00:00.000Z",
+    "tags": ["onboarding", "bun", "javascript-runtime", "zig", "cpp"]
+  }
+}
