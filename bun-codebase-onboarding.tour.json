@@ -72,7 +72,7 @@
     {
       "id": "step-4-bun-apis",
       "title": "Bun-Specific APIs",
-      "description": "These are Bun's unique APIs and implementations that go beyond standard JavaScript/Node.js, including the HTTP server, FFI, and package manager.",
+      "description": "These are Bun's unique APIs and implementations that go beyond standard JavaScript/Node.js including the HTTP server, FFI, and package manager.",
       "estimatedTime": 160,
       "focusDirectory": "src/bun.js/api",
       "highlightLayers": [
@@ -241,6 +241,87 @@
           "type": "click-file",
           "description": "Click AGENTS.md to see development guidelines",
           "target": "AGENTS.md"
+        }
+      ]
+    },
+    {
+      "id": "step-11-complete-overview",
+      "title": "Complete File City Map",
+      "description": "Here's the complete Bun codebase map! This overview shows all components we've explored - from the Zig runtime core to the JavaScript APIs, testing suite, and build tools. You can now see how everything fits together in this comprehensive JavaScript runtime ecosystem.",
+      "estimatedTime": 60,
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "complete-overview-layer",
+          "name": "Complete Architecture",
+          "color": "#1f2937",
+          "items": [
+            { "path": "src", "type": "directory" },
+            { "path": "src/bun.js", "type": "directory" },
+            { "path": "src/bun.js/bindings", "type": "directory" },
+            { "path": "src/bun.js/api", "type": "directory" },
+            { "path": "src/bun.js/node", "type": "directory" },
+            { "path": "src/bun.js/webcore", "type": "directory" },
+            { "path": "src/bun.js/event_loop", "type": "directory" },
+            { "path": "src/bundler", "type": "directory" },
+            { "path": "src/install", "type": "directory" },
+            { "path": "src/install/lockfile", "type": "directory" },
+            { "path": "src/js", "type": "directory" },
+            { "path": "src/js/node", "type": "directory" },
+            { "path": "src/js/bun", "type": "directory" },
+            { "path": "src/js/thirdparty", "type": "directory" },
+            { "path": "src/js/builtins", "type": "directory" },
+            { "path": "src/js/internal", "type": "directory" },
+            { "path": "src/shell", "type": "directory" },
+            { "path": "src/css", "type": "directory" },
+            { "path": "src/http", "type": "directory" },
+            { "path": "src/http/websocket_client", "type": "directory" },
+            { "path": "src/sql", "type": "directory" },
+            { "path": "src/bake", "type": "directory" },
+            { "path": "src/resolver", "type": "directory" },
+            { "path": "src/allocators", "type": "directory" },
+            { "path": "src/codegen", "type": "directory" },
+            { "path": "test", "type": "directory" },
+            { "path": "test/js", "type": "directory" },
+            { "path": "test/js/bun", "type": "directory" },
+            { "path": "test/js/node", "type": "directory" },
+            { "path": "test/js/web", "type": "directory" },
+            { "path": "test/cli", "type": "directory" },
+            { "path": "test/bundler", "type": "directory" },
+            { "path": "test/integration", "type": "directory" },
+            { "path": "test/napi", "type": "directory" },
+            { "path": "test/v8", "type": "directory" },
+            { "path": "test/regression", "type": "directory" },
+            { "path": "docs", "type": "directory" },
+            { "path": "examples", "type": "directory" },
+            { "path": "scripts", "type": "directory" },
+            { "path": "completions", "type": "directory" },
+            { "path": "docker", "type": "directory" },
+            { "path": "package.json", "type": "file" },
+            { "path": "build.zig", "type": "file" },
+            { "path": "README.md", "type": "file" },
+            { "path": "Makefile", "type": "file" },
+            { "path": "LICENSE", "type": "file" },
+            { "path": "AGENTS.md", "type": "file" },
+            { "path": "CONTRIBUTING.md", "type": "file" },
+            { "path": "CHANGELOG.md", "type": "file" },
+            { "path": "src/bun.zig", "type": "file" },
+            { "path": "src/cli.zig", "type": "file" },
+            { "path": "src/js_parser.zig", "type": "file" },
+            { "path": "src/js_lexer.zig", "type": "file" },
+            { "path": "src/js_printer.zig", "type": "file" },
+            { "path": "src/transpiler.zig", "type": "file" }
+          ],
+          "opacity": 0.15,
+          "borderWidth": 1,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "explore",
+          "description": "Explore any area of the codebase that interests you",
+          "target": ""
         }
       ]
     }
