@@ -147,6 +147,7 @@
       "title": "Bundler & Package Manager",
       "description": "Bun includes a fast bundler and package manager. This is where the advanced tree-shaking, dependency resolution, and build tooling lives.",
       "estimatedTime": 150,
+      "focusDirectory": "src",
       "highlightLayers": [
         {
           "id": "build-tools-layer",
@@ -218,7 +219,7 @@
       "title": "Development Workflow",
       "description": "Key files for understanding how to build and develop Bun. The build system uses Zig's build system, and the main workflow involves 'bun bd' for debug builds.",
       "estimatedTime": 110,
-      "highlightFiles": ["package.json", "AGENTS.md", "README.md", "build.zig"],
+      "focusDirectory": "",
       "highlightLayers": [
         {
           "id": "dev-files-layer",
@@ -249,6 +250,7 @@
       "title": "Complete File City Map",
       "description": "Here's the complete Bun codebase map! This overview shows all components we've explored - from the Zig runtime core to the JavaScript APIs, testing suite, and build tools. You can now see how everything fits together in this comprehensive JavaScript runtime ecosystem.",
       "estimatedTime": 60,
+      "focusDirectory": "",
       "colorMode": "fileTypes",
       "highlightLayers": [
         {
